@@ -9,6 +9,7 @@ This is an unofficial Pytorch implementation of MVSNet
 ### Environment
 * python 3.6 (Anaconda)
 * pytorch 1.0.1
+* `pip install -r requirements.txt`
 
 ### Training
 
@@ -22,6 +23,14 @@ This is an unofficial Pytorch implementation of MVSNet
 * Download the preprocessed test data [DTU testing data](https://drive.google.com/open?id=135oKPefcPTsdtLRzoDAQtPpHuoIrpRI_) (from [Original MVSNet](https://github.com/YoYo000/MVSNet)) and unzip it as the ``DTU_TESTING`` folder, which should contain one ``cams`` folder, one ``images`` folder and one ``pair.txt`` file.
 * in ``test.sh``, set ``DTU_TESTING`` as your testing data path and ``CKPT_FILE`` as your checkpoint file. You can also download my [pretrained model](https://drive.google.com/file/d/1j2I_LNKb9JeCl6wdA7hh8z1WgVQZfLU9/view?usp=sharing).
 * Test MVSNet: ``./test.sh``
+
+### Depthmap Visualization
+
+<img src="doc/rgb.jpg" width="250">   | <img src="doc/depthmap.png" width="250"> |  <img src="doc/depthmap.jpg" width="250">
+:---------------------------------------:|:---------------------------------------:|:---------------------------------------:
+reference image                          |depth map (matplotlib)                   |  depth map (opencv) 
+
+Visualize the estimated depth map using `python visualize.py xxx.pfm`
 
 ### Fusion
 
