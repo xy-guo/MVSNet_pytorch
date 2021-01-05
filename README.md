@@ -45,3 +45,7 @@ in ``eval.py``, I implemented a simple version of depth map fusion. Welcome cont
 | PyTorch-MVSNet(D=192) | 0.4492 | 0.3796 | 0.4144   |
 
 Due to the memory limit, we only train the model with ``D=192``, the fusion code is also different from the original repo.
+
+### TODO
+1. add dataloader for [blendedmvs dataset](https://github.com/YoYo000/BlendedMVS)
+2. using [fusibile of mvsnet version](https://github.com/XYZ-qiyh/fusibile-mvsnet)
