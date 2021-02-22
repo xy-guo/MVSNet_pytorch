@@ -9,6 +9,7 @@ This is an unofficial Pytorch implementation of MVSNet
 ### Environment
 * python 3.6 (Anaconda)
 * pytorch 1.0.1
+* `pip install -r requirements.txt`
 
 ### Training
 
@@ -23,6 +24,14 @@ This is an unofficial Pytorch implementation of MVSNet
 * in ``test.sh``, set ``DTU_TESTING`` as your testing data path and ``CKPT_FILE`` as your checkpoint file. You can also download my [pretrained model](https://drive.google.com/file/d/1j2I_LNKb9JeCl6wdA7hh8z1WgVQZfLU9/view?usp=sharing).
 * Test MVSNet: ``./test.sh``
 
+### Depthmap Visualization
+
+<img src="doc/rgb.jpg" width="250">   | <img src="doc/depthmap.png" width="250"> |  <img src="doc/depthmap.jpg" width="250">
+:---------------------------------------:|:---------------------------------------:|:---------------------------------------:
+reference image                          |depth map (matplotlib)                   |  depth map (opencv) 
+
+Visualize the estimated depth map using `python visualize.py xxx.pfm`
+
 ### Fusion
 
 in ``eval.py``, I implemented a simple version of depth map fusion. Welcome contributions to improve the code.
@@ -36,3 +45,7 @@ in ``eval.py``, I implemented a simple version of depth map fusion. Welcome cont
 | PyTorch-MVSNet(D=192) | 0.4492 | 0.3796 | 0.4144   |
 
 Due to the memory limit, we only train the model with ``D=192``, the fusion code is also different from the original repo.
+
+### TODO
+1. add dataloader for [blendedmvs dataset](https://github.com/YoYo000/BlendedMVS)
+2. using [fusibile of mvsnet version](https://github.com/XYZ-qiyh/fusibile-mvsnet)
