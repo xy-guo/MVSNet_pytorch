@@ -118,7 +118,9 @@ def homo_warping(src_fea, src_proj, ref_proj, depth_values):
         rot_depth_xyz = rot_xyz.unsqueeze(2).repeat(1, 1, num_depth, 1) * depth_values.view(batch, 1, num_depth,
                                                                                             1)  # [B, 3, Ndepth, H*W]
         proj_xyz = rot_depth_xyz + trans.view(batch, 3, 1, 1)  # [B, 3, Ndepth, H*W]
-        proj_xy = proj_xyz[:, :2, :, :] / proj_xyz[:, 2:3, :, :]  # [B, 2, Ndepth, H*W]
+        proj_z = proj_xyz[:, 2:3, :, :]
+        proj_z[proj_z == 0] += 1e-6
+        proj_xy = proj_xyz[:, :2, :, :] / proj_z  # [B, 2, Ndepth, H*W]
         proj_x_normalized = proj_xy[:, 0, :, :] / ((width - 1) / 2) - 1
         proj_y_normalized = proj_xy[:, 1, :, :] / ((height - 1) / 2) - 1
         proj_xy = torch.stack((proj_x_normalized, proj_y_normalized), dim=3)  # [B, Ndepth, H*W, 2]
